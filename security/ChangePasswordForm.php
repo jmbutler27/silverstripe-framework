@@ -20,6 +20,12 @@ class ChangePasswordForm extends Form {
 	 *                                     form - a {@link FieldList} of
 	 */
 	public function __construct($controller, $name, $fields = null, $actions = null) {
+
+		$customCSS = project() . '/css/member_login.css';
+		if(Director::fileExists($customCSS)) {
+			Requirements::css($customCSS);
+		}
+
 		if(isset($_REQUEST['BackURL'])) {
 			$backURL = $_REQUEST['BackURL'];
 		} else {
